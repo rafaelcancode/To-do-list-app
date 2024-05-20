@@ -1,0 +1,25 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.main {
+    border: 1px solid rgba(94, 90, 90, 0.443);
+    text-align: center;
+    margin: 100px 100px 50px 100px;
+    width: 50vh;
+    height: 50vh;
+}
+
+.taskfield {
+    border: 1px solid gray;
+    height: 25vh;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: start;
+}
+
+button {
+    cursor: pointer;
+}
