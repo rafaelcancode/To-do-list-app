@@ -18,17 +18,17 @@ function addTask() {
   const newTask = document.createElement("p");
   newTask.textContent = taskText;
 
-  // Create delete button
-  const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete";
-  deleteButton.classList.add("deleteButton");
-
   // Create edit button
   const editButton = document.createElement("button");
   editButton.textContent = "Edit";
   editButton.classList.add("editButton");
 
-  // Append the task and buttons to the container
+  // Create delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.classList.add("deleteButton");
+
+  // Append the task, edit button, and delete button to the container
   taskContainer.appendChild(newTask);
   taskContainer.appendChild(editButton);
   taskContainer.appendChild(deleteButton);
@@ -46,10 +46,18 @@ function addTask() {
 
   // Add event listener to edit button
   editButton.addEventListener("click", () => {
-    const editedTask = prompt("Edit your task:", taskText);
-    if (editedTask !== null && editedTask.trim() !== "") {
-      newTask.textContent = editedTask;
-    }
+    // Make the task text editable
+    newTask.contentEditable = true;
+    newTask.focus(); // Focus on the task text for editing
+    // Remove the edit button
+    editButton.style.display = "none";
+    // Add event listener to handle finishing editing
+    newTask.addEventListener("blur", () => {
+      // Make the task text non-editable
+      newTask.contentEditable = false;
+      // Show the edit button again
+      editButton.style.display = "inline-block";
+    });
   });
 }
 
