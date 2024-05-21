@@ -6,7 +6,8 @@ function addTask() {
   const taskText = inputEl.value;
 
   if (taskText.trim() === "") {
-    alert("Please enter a task.");
+
+    inputEl.placeholder = "Enter a task here!";
     return;
   }
 
